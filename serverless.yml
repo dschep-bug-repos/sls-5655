@@ -17,12 +17,15 @@ service: sls-5655 # NOTE: update this with your service name
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+custom:
+  stage: custom-stage
+
 provider:
   name: aws
   runtime: nodejs8.10
 
 # you can overwrite defaults here
-#  stage: dev
+  stage: ${self:custom.stage}
 #  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
